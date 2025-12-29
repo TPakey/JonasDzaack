@@ -27,15 +27,22 @@
 - [ ] Ensure it does not repeat aggressively (optional: only first load)
 - [ ] Respect prefers-reduced-motion
 
-## Phase 4 — Hero Section (Sky + Cloud Brush Dissipate)
-- [ ] Render sky background (image + gradient wash)
-- [ ] Add subtle noise overlay (Hero only)
-- [ ] Add headline + subline + 2 CTAs
-- [ ] Implement Cloud Brush interaction:
-  - [ ] Canvas overlay captures cursor/touch
-  - [ ] Brush strokes appear as soft white cloud “paint”
-  - [ ] Strokes dissipate/fade over time
-  - [ ] Keep 60fps; degrade effect on low power
+## Phase 4 — Hero Section (Portal Story — A1) ✅ COMPLETED
+- [x] Render sky background with gradient + clouds
+- [x] Add subtle grain overlay (backgrounds only, never on text/UI)
+- [x] Add headline + subline + 2 CTAs
+- [x] Implement Portal Story scroll transition:
+  - [x] Hero content starts clipped inside TV screen (meadow scene)
+  - [x] GSAP ScrollTrigger drives smooth expansion to fullscreen
+  - [x] Single DOM approach (no screenshot switch)
+  - [x] Cloud parallax (2 layers, subtle movement)
+  - [x] Fake grass breeze effect
+  - [x] Mini glass pill overlay ("Scroll to enter")
+  - [x] Vignette + optional scanlines (backgrounds only)
+  - [x] Respect prefers-reduced-motion (skip animation, show fullscreen)
+  - [x] Mobile responsive with simplified effects
+- [x] Create asset structure + documentation for tv-meadow.png
+- [x] Placeholder SVG provided until real image added
 
 ## Phase 5 — Proof / Results Strip (text-only)
 - [ ] Add compact strip with 3–5 proof highlights (no logos required)

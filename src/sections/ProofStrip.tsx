@@ -8,7 +8,7 @@ const ProofStrip: React.FC = () => {
   ];
 
   return (
-    <section className="section bg-white/30 backdrop-blur-sm border-y border-outline">
+    <section className="section bg-white/30 backdrop-blur-sm border-y border-outline py-12 md:py-16">
       <div className="container-custom">
         <p className="text-sm md:text-base text-text-2 mb-6 text-center">
           Results I contributed to:

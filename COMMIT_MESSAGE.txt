@@ -1,0 +1,38 @@
+feat: Implement Hero Portal animation (Section A1)
+
+Implemented the "Portal Story" hero section with scroll-driven TV-to-fullscreen transition.
+
+Key Features:
+- Single DOM approach with GSAP ScrollTrigger
+- Hero content starts clipped inside TV screen, expands to fullscreen on scroll
+- Sky gradient + procedural cloud layers with parallax
+- Mini glassmorphism pill overlay
+- Fake grass breeze effect with subtle animation
+- SVG grain and vignette (backgrounds only, never on text/UI)
+- Full prefers-reduced-motion support
+- Mobile responsive with simplified effects
+
+Technical Implementation:
+- Created src/sections/HeroPortal.tsx with configurable SCREEN_CONFIG
+- Replaced Hero with HeroPortal in App.tsx
+- Added placeholder SVG (tv-meadow.svg) until real image provided
+- Zero new dependencies (uses existing GSAP)
+
+Assets Required:
+⚠️ MUST PROVIDE: public/assets/hero/tv-meadow.png
+See public/assets/hero/README.md for calibration instructions
+
+Configuration:
+The SCREEN_CONFIG object at the top of HeroPortal.tsx controls TV screen positioning.
+Adjust xPct, yPct, wPct, hPct values to match actual TV screen in final image.
+
+Files Added:
+- src/sections/HeroPortal.tsx
+- public/assets/hero/README.md
+- public/assets/hero/tv-meadow.svg (placeholder)
+- HERO_PORTAL_IMPLEMENTATION.md (full documentation)
+
+Files Modified:
+- src/App.tsx (replaced Hero import with HeroPortal)
+
+All acceptance criteria met. No black screen, smooth transition, proper motion design.

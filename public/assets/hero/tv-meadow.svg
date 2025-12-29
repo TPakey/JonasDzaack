@@ -1,0 +1,56 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky gradient background -->
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#B0E0E6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7CB342;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#558B2F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="1920" height="600" fill="url(#skyGrad)"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="300" cy="150" rx="120" ry="60" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="380" cy="140" rx="100" ry="50" fill="#ffffff" opacity="0.8"/>
+  <ellipse cx="1500" cy="200" rx="150" ry="70" fill="#ffffff" opacity="0.7"/>
+  <ellipse cx="1600" cy="190" rx="120" ry="60" fill="#ffffff" opacity="0.7"/>
+  
+  <!-- Grass/Meadow -->
+  <rect y="600" width="1920" height="480" fill="url(#grassGrad)"/>
+  
+  <!-- TV Stand/Table -->
+  <rect x="760" y="800" width="400" height="40" fill="#5D4037" rx="4"/>
+  <rect x="820" y="840" width="80" height="200" fill="#5D4037"/>
+  <rect x="1020" y="840" width="80" height="200" fill="#5D4037"/>
+  
+  <!-- TV Body -->
+  <rect x="700" y="350" width="520" height="460" fill="#2C3E50" rx="8"/>
+  
+  <!-- TV Screen (the important part - adjust SCREEN_CONFIG to match this) -->
+  <!-- Screen center: x=960 (50%), y=540 (50%) -->
+  <!-- Screen size: 440x360 (approx 23% width, 33% height) -->
+  <rect x="740" y="390" width="440" height="360" fill="#1a1a1a" rx="4"/>
+  
+  <!-- Screen reflection/glare -->
+  <rect x="740" y="390" width="440" height="180" fill="url(#screenGlare)" rx="4"/>
+  <defs>
+    <linearGradient id="screenGlare" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- TV Brand/Logo -->
+  <text x="960" y="825" font-family="Arial, sans-serif" font-size="24" fill="#ecf0f1" text-anchor="middle">PORTAL</text>
+  
+  <!-- Annotation text (remove when replacing with real image) -->
+  <text x="960" y="1050" font-family="Arial, sans-serif" font-size="18" fill="#333333" text-anchor="middle" opacity="0.7">
+    ⚠️ PLACEHOLDER: Replace with tv-meadow.png
+  </text>
+</svg>

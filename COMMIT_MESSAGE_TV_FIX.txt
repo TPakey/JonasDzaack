@@ -1,0 +1,64 @@
+fix: Replace viewport-based TV mapping with source-image-based coordinates
+
+Fixed TV screen mapping in HeroPortal to correctly handle object-fit: cover cropping.
+
+Problem:
+- Previous implementation used viewport percentages (SCREEN_CONFIG)
+- Didn't account for how background-size: cover crops images
+- Portal content misaligned when image was cropped differently on various viewport sizes
+
+Solution:
+- Replaced viewport-based percentages with source image pixel coordinates
+- Implemented TV_SCREEN_SRC with x, y, w, h in source pixels
+- Compute rendered TV rect accounting for cover scale + offset:
+  - scale = max(containerW / imgW, containerH / imgH)
+  - renderedW/H = imgW/H * scale
+  - offsetX/Y = (containerW/H - renderedW/H) / 2
+  - TV rect = offsetX/Y + src * scale
+- Derive clip-path and transform from computed rect (not guessed)
+- Use function-based GSAP values with invalidateOnRefresh: true
+- Auto-detect source image dimensions via Image.onload
+- Rebuild timeline on resize for perfect alignment
+
+Features Added:
+- Debug overlay (toggle with "D" key):
+  - Neon-lime outline shows computed TV screen rect
+  - Info panel displays source dimensions and TV coordinates
+  - Helps verify alignment quickly during calibration
+- Transform origin changed to '0 0' (top-left) for correct scaling
+- ScrollTrigger refresh on resize with timeline rebuild
+- Single source of truth: TV_SCREEN_SRC in source pixels
+
+Technical Changes:
+- Added useState for sourceImageDims (auto-detected from image)
+- Added useState for showDebug (toggle with D key)
+- Added useEffect for image dimension detection
+- Added useEffect for keyboard event listener
+- Added computeTVScreenRect() - handles cover math
+- Added computeClipPath() - derives inset percentages
+- Added computeInitialTransform() - calculates scale/translate
+- Added buildTimeline() - function-based values, rebuilds on refresh
+- Added debugOverlayRef for visual calibration aid
+
+Documentation Updated:
+- HERO_PORTAL_QUICKSTART.md - New calibration method with debug overlay
+- HERO_PORTAL_IMPLEMENTATION.md - Source-pixel approach explained
+- public/assets/hero/README.md - Detailed measuring instructions
+- All docs now reference TV_SCREEN_SRC (not SCREEN_CONFIG)
+
+Benefits:
+✅ Works correctly with object-fit: cover on all viewport sizes
+✅ Single source of truth (source image coordinates)
+✅ Automatically scales correctly on any screen
+✅ Recalculates perfectly on window resize
+✅ Debug overlay makes calibration easy
+✅ No more misalignment issues
+
+Calibration Instructions:
+1. Open tv-meadow.png in image editor
+2. Measure TV screen in source pixels (x, y, w, h)
+3. Update TV_SCREEN_SRC in HeroPortal.tsx
+4. Press "D" to verify with debug overlay
+
+All A1 enhancements remain intact (glass pill, cloud parallax, grass breeze, grain/vignette).
+Reduced motion support unchanged.
